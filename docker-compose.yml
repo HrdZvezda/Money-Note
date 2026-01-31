@@ -10,17 +10,20 @@ services:
     environment:
       - FLASK_ENV=development
       - FLASK_DEBUG=1
-    # depends_on:
-    #   - db  # 之後加資料庫時取消註解
+      - DATABASE_URL=postgresql://money_note:password@db:5432/money_note_db
+    depends_on:
+      - db
 
-    # db:  # 之後需要時取消註解
-    #   image: postgres:15
-    #   environment:
-    #     POSTGRES_USER: money_note
-    #     POSTGRES_PASSWORD: your_password
-    #     POSTGRES_DB: money_note_db
-    #   volumes:
-    #     - postgres_data:/var/lib/postgresql/data
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: money_note
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: money_note_db
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
 
-    # volumes:
-    #   postgres_data:
+volumes:
+  postgres_data:
