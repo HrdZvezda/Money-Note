@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+.Python
+venv/
+.venv/
+*.egg-info/
+
+# 環境變數 (含敏感資訊)
+.env
+.env.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# macOS
+.DS_Store
+
+# 測試/覆蓋率
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Docker (只忽略本地覆蓋檔，主檔不忽略)
+docker-compose.override.yml
