@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    ports:
+      - "8888:8888" # 左邊是主機端口，右邊是容器內端口ports:
+    volumes:
+      - .:/app # 開發時同步程式碼變更
+    environment:
+      - FLASK_ENV=development
+      - FLASK_DEBUG=1
+    # depends_on:
+    #   - db  # 之後加資料庫時取消註解
+
+    # db:  # 之後需要時取消註解
+    #   image: postgres:15
+    #   environment:
+    #     POSTGRES_USER: money_note
+    #     POSTGRES_PASSWORD: your_password
+    #     POSTGRES_DB: money_note_db
+    #   volumes:
+    #     - postgres_data:/var/lib/postgresql/data
+
+    # volumes:
+    #   postgres_data:
