@@ -3,3 +3,6 @@ flask-sqlalchemy==3.1.1
 psycopg2-binary==2.9.9 # PostgreSQL 驅動程式
 python-dotenv==1.0.0 # 讀取 .env 環境變數
 gunicorn==21.2.0 # 正式環境的 WSGI 伺服器
+
+pytest==7.4.0
+pytest-flask==1.3.0
